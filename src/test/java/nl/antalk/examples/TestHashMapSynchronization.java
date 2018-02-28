@@ -16,7 +16,12 @@ import org.junit.runner.RunWith;
 import nl.antalk.examples.model.ApplicationEvent;
 import nl.antalk.examples.model.ApplicationEvent.ACTION;
 
-
+/**
+ * CDI / {@link ExecutorService} in combination with synchronized maps
+ * 
+ * @author antalk
+ *
+ */
 @RunWith(CdiRunner.class)
 public class TestHashMapSynchronization {
 	
@@ -59,9 +64,7 @@ public class TestHashMapSynchronization {
 		@Override
 		public void run() {
 			System.err.println("Handled in thread " + Thread.currentThread().getId() );
-			if (numberMap.get(this.key) == null) {
-				throw new RuntimeException("Key is NULL!");
-			}
+			numberMap.get(this.key).length();
 		}
 		
 	}
