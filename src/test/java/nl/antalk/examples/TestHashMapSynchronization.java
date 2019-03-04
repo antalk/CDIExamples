@@ -25,7 +25,7 @@ import nl.antalk.examples.model.ApplicationEvent.ACTION;
 @RunWith(CdiRunner.class)
 public class TestHashMapSynchronization {
 	
-	private final Map<Integer, String> numberMap = new HashMap<>();
+	private final Map<Integer, String> numberMap = new HashMap<>(1000,2);
 	
 	@Inject
 	private Event<ApplicationEvent> appEventService;
